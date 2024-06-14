@@ -1,11 +1,15 @@
 import { Component, Input} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Polideportivolocation } from '../polideportivolocation';
+import { PolideportivoLocation } from '../polideportivolocation';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-polideportivo-location',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    RouterModule
+  ],
   template: `
   <section class="listing">
     <img class="listing-photo" [src]="polideportivoLocation.photo" alt="Exterior photo of {{polideportivoLocation.name}}">
@@ -13,8 +17,8 @@ import { Polideportivolocation } from '../polideportivolocation';
     <p class="listing-location">{{ polideportivoLocation.city}}, {{polideportivoLocation.state }}</p>
   </section>
   `,
-  styleUrl: './polideportivo-location.component.css'
+  styleUrls: ['./polideportivo-location.component.css'],
 })
 export class PolideportivoLocationComponent {
-  @Input() polideportivoLocation! : Polideportivolocation;
+  @Input() polideportivoLocation! : PolideportivoLocation;
 }

@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PolideportivoLocationComponent } from '../polideportivo-location/polideportivo-location.component';
-import { Polideportivolocation } from '../polideportivolocation';
-
+import { PolideportivoLocation } from '../polideportivolocation';
+import { PolideportivoService } from '../polideportivo.service';
 @Component({
   selector: 'app-polideportivo',
   standalone: true,
@@ -18,22 +18,19 @@ import { Polideportivolocation } from '../polideportivolocation';
     </form>
   </section>
   <section class="results">
-    <app-polideportivo-location [polideportivoLocation]="polideportivolocation"]></app-polideportivo-location>
-  </section>
+      <app-polideportivo-location
+        *ngFor="let polideportivoLocation of polideportivoLocationList"
+        [polideportivoLocation]="polideportivoLocation">
+      </app-polideportivo-location>
+    </section>
   `,
-  styleUrl: './polideportivo.component.css'
+  styleUrls: ['./polideportivo.component.css'],
 })
 export class PolideportivoComponent {
-  readonly baseUrl = 'https://angular.io/assets/images/tutorials/faa';
+  polideportivoLocationList: PolideportivoLocation[] = [];
+  polideportivoService: PolideportivoService = inject(PolideportivoService);
 
-  polideportivolocation: Polideportivolocation = {
-    id: 9999,
-    name: 'Test Home',
-    city: 'Test city',
-    state: 'ST',
-    photo: `${this.baseUrl}/example-house.jpg`,
-    availableUnits: 99,
-    wifi: true,
-    laundry: false,
-  };
+  constructor() {
+    this.polideportivoLocationList = this.polideportivoService.getAllPolideportivoLocations();
+  }
 }
