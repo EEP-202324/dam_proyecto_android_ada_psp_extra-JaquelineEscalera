@@ -1,0 +1,5 @@
+[
+  {"id": 1, "nombre":"Polideportivo Vallehermoso","ciudad":"Madrid", "estado":"Madrid" },
+  {"id": 2, "nombre":"Polideportivo Municipal Barajas","ciudad":"Barajas", "estado":"Madrid" },
+  {"id": 3, "nombre":"Polideportivo San Juan","ciudad":"Alicante", "estado":"Valencia"  }
+]

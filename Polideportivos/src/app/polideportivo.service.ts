@@ -5,7 +5,7 @@ import { PolideportivoLocation } from './polideportivolocation';
 })
 export class PolideportivoService {
 
-  url = 'http://localhost:3000/locations';
+  url = 'http://localhost:8080/polideportivos';
 
   async getAllPolideportivoLocations(): Promise<PolideportivoLocation[]> {
     const data = await fetch(this.url);
