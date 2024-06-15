@@ -1,0 +1,104 @@
+{
+  "locations": [
+    {
+      "id": 0,
+      "name": "Polideportivo Vallehermoso",
+      "city": "Madrid",
+      "state": "Madrid",
+      "photo": "https://mi-servidor.com/images/polideportivos/vallehermoso.jpg",
+      "availableUnits": 4,
+      "wifi": true,
+      "laundry": true
+    },
+    {
+      "id": 1,
+      "name": "Polideportivo Municipal Barajas",
+      "city": "Madrid",
+      "state": "Madrid",
+      "photo": "https://mi-servidor.com/images/polideportivos/barajas.jpg",
+      "availableUnits": 0,
+      "wifi": false,
+      "laundry": true
+    },
+    {
+      "id": 2,
+      "name": "Polideportivo Aluche",
+      "city": "Madrid",
+      "state": "Madrid",
+      "photo": "https://mi-servidor.com/images/polideportivos/aluche.jpg",
+      "availableUnits": 1,
+      "wifi": false,
+      "laundry": false
+    },
+    {
+      "id": 3,
+      "name": "Polideportivo La Elipa",
+      "city": "Madrid",
+      "state": "Madrid",
+      "photo": "https://mi-servidor.com/images/polideportivos/la_elipa.jpg",
+      "availableUnits": 1,
+      "wifi": true,
+      "laundry": false
+    },
+    {
+      "id": 4,
+      "name": "Polideportivo Vicente del Bosque",
+      "city": "Madrid",
+      "state": "Madrid",
+      "photo": "https://mi-servidor.com/images/polideportivos/vicente_del_bosque.jpg",
+      "availableUnits": 1,
+      "wifi": true,
+      "laundry": false
+    },
+    {
+      "id": 5,
+      "name": "Polideportivo La Mina",
+      "city": "Madrid",
+      "state": "Madrid",
+      "photo": "https://mi-servidor.com/images/polideportivos/la_mina.jpg",
+      "availableUnits": 2,
+      "wifi": true,
+      "laundry": true
+    },
+    {
+      "id": 6,
+      "name": "Polideportivo Moratalaz",
+      "city": "Madrid",
+      "state": "Madrid",
+      "photo": "https://mi-servidor.com/images/polideportivos/moratalaz.jpg",
+      "availableUnits": 5,
+      "wifi": true,
+      "laundry": true
+    },
+    {
+      "id": 7,
+      "name": "Polideportivo Entrevías",
+      "city": "Madrid",
+      "state": "Madrid",
+      "photo": "https://mi-servidor.com/images/polideportivos/entrevias.jpg",
+      "availableUnits": 2,
+      "wifi": true,
+      "laundry": true
+    },
+    {
+      "id": 8,
+      "name": "Polideportivo Orcasitas",
+      "city": "Madrid",
+      "state": "Madrid",
+      "photo": "https://mi-servidor.com/images/polideportivos/orcasitas.jpg",
+      "availableUnits": 10,
+      "wifi": false,
+      "laundry": false
+    },
+    {
+      "id": 9,
+      "name": "Polideportivo Las Cruces",
+      "city": "Madrid",
+      "state": "Madrid",
+      "photo": "https://mi-servidor.com/images/polideportivos/las_cruces.jpg",
+      "availableUnits": 6,
+      "wifi": true,
+      "laundry": true
+    }
+  ]
+}

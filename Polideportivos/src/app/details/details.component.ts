@@ -1,17 +1,72 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
+import { PolideportivoService } from '../polideportivo.service';
+import { PolideportivoLocation } from '../polideportivolocation';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,
+    ReactiveFormsModule
+  ],
   template: `
-    <p>
-      details works!
-    </p>
-  `,
+  <article>
+    <img class="listing-photo" [src]="polideportivoLocation?.photo"
+      alt="Exterior photo of {{polideportivoLocation?.name}}"/>
+    <section class="listing-description">
+      <h2 class="listing-heading">{{polideportivoLocation?.name}}</h2>
+      <p class="listing-location">{{polideportivoLocation?.city}}, {{polideportivoLocation?.state}}</p>
+    </section>
+    <section class="listing-features">
+      <h2 class="section-heading">About this housing location</h2>
+      <ul>
+        <li>Units available: {{polideportivoLocation?.availableUnits}}</li>
+        <li>Does this location have wifi: {{polideportivoLocation?.wifi}}</li>
+        <li>Does this location have laundry: {{polideportivoLocation?.laundry}}</li>
+      </ul>
+    </section>
+    <section class="listing-apply">
+        <h2 class="section-heading">Apply now to live here</h2>
+        <form [formGroup]="applyForm" (submit)="submitApplication()">
+          <label for="first-name">First Name</label>
+          <input id="first-name" type="text" formControlName="firstName">
+
+          <label for="last-name">Last Name</label>
+          <input id="last-name" type="text" formControlName="lastName">
+
+          <label for="email">Email</label>
+          <input id="email" type="email" formControlName="email">
+          <button type="submit" class="primary">Apply now</button>
+        </form>
+      </section>
+  </article>
+`,
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent {
 
+  route: ActivatedRoute = inject(ActivatedRoute);
+  polideportivoService = inject(PolideportivoService);
+  polideportivoLocation: PolideportivoLocation | undefined;
+  applyForm = new FormGroup({
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
+    email: new FormControl('')
+  });
+
+  constructor() {
+    const polideportivoLocationId = parseInt(this.route.snapshot.params['id'], 10);
+    this.polideportivoService.getPolideportivoLocationById(polideportivoLocationId).then(polideportivoLocation => {
+      this.polideportivoLocation = polideportivoLocation;
+    });
+  }
+  submitApplication() {
+    this.polideportivoService.submitApplication(
+      this.applyForm.value.firstName ?? '',
+      this.applyForm.value.lastName ?? '',
+      this.applyForm.value.email ?? ''
+    );
+  }
 }

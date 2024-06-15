@@ -13,13 +13,13 @@ import { PolideportivoService } from '../polideportivo.service';
   template: `
   <section>
     <form>
-      <input type="text" placeholder="Filter by city">
-      <button class="primary" type="button">Search</button>
+    <input type="text" placeholder="Filter by city" #filter>
+    <button class="primary" type="button" (click)="filterResults(filter.value)">Search</button>
     </form>
   </section>
   <section class="results">
       <app-polideportivo-location
-        *ngFor="let polideportivoLocation of polideportivoLocationList"
+        *ngFor="let polideportivoLocation of filteredLocationList"
         [polideportivoLocation]="polideportivoLocation">
       </app-polideportivo-location>
     </section>
@@ -29,8 +29,22 @@ import { PolideportivoService } from '../polideportivo.service';
 export class PolideportivoComponent {
   polideportivoLocationList: PolideportivoLocation[] = [];
   polideportivoService: PolideportivoService = inject(PolideportivoService);
+  filteredLocationList: PolideportivoLocation[] = [];
 
   constructor() {
-    this.polideportivoLocationList = this.polideportivoService.getAllPolideportivoLocations();
+    this.polideportivoService.getAllPolideportivoLocations().then((polideportivoLocationList: PolideportivoLocation[]) => {
+      this.polideportivoLocationList = polideportivoLocationList;
+      this.filteredLocationList = polideportivoLocationList;
+    });
+  }
+  filterResults(text: string) {
+    if (!text) {
+      this.filteredLocationList = this.polideportivoLocationList;
+      return;
+    }
+
+    this.filteredLocationList = this.polideportivoLocationList.filter(
+      polideportivoLocation => polideportivoLocation?.city.toLowerCase().includes(text.toLowerCase())
+    );
   }
 }

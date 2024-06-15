@@ -15,6 +15,7 @@ import { RouterModule } from '@angular/router';
     <img class="listing-photo" [src]="polideportivoLocation.photo" alt="Exterior photo of {{polideportivoLocation.name}}">
     <h2 class="listing-heading">{{ polideportivoLocation.name }}</h2>
     <p class="listing-location">{{ polideportivoLocation.city}}, {{polideportivoLocation.state }}</p>
+    <a [routerLink]="['/details', polideportivoLocation.id]">Learn More</a>
   </section>
   `,
   styleUrls: ['./polideportivo-location.component.css'],

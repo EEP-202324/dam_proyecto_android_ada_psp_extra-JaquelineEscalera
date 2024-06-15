@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { PolideportivoComponent } from './polideportivo/polideportivo.component';
-import { RouterModule } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     PolideportivoComponent,
-    RouterModule,
+    RouterLink,
+    RouterOutlet,
   ],
   template: `
    <main>
