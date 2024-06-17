@@ -15,16 +15,18 @@ public class Polideportivo {
 	private String nombre;
 	private String ciudad;
 	private String estado;
+	private String foto;
 	
 	public Polideportivo() {
 	}
 
-	public Polideportivo(Long id, String nombre, String ciudad, String estado) {
+	public Polideportivo(Long id, String nombre, String ciudad, String estado, String foto) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.ciudad = ciudad;
 		this.estado = estado;
+		this.foto = foto;
 	}
 
 	public Long getId() {
@@ -58,15 +60,17 @@ public class Polideportivo {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
 	@Override
 	public String toString() {
-		return "Polideportivo [id=" + id + ", nombre=" + nombre + ", ciudad=" + ciudad + ", estado=" + estado + "]";
+		return "Polideportivo [id=" + id + ", nombre=" + nombre + ", ciudad=" + ciudad + ", estado=" + estado + ", foto=" + foto +"]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(ciudad, estado, id, nombre);
+		return Objects.hash(ciudad, estado, id, nombre, foto);
 	}
 
 	@Override
@@ -79,7 +83,7 @@ public class Polideportivo {
 			return false;
 		Polideportivo other = (Polideportivo) obj;
 		return Objects.equals(ciudad, other.ciudad) && Objects.equals(estado, other.estado)
-				&& Objects.equals(id, other.id) && Objects.equals(nombre, other.nombre);
+				&& Objects.equals(id, other.id) && Objects.equals(nombre, other.nombre)&& Objects.equals(foto, other.foto);
 	}
 
 }

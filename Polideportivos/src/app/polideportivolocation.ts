@@ -1,10 +1,7 @@
-export interface PolideportivoLocation {
+export interface Polideportivo {
   id: number;
-  name: string;
-  city: string;
-  state: string;
-  photo: string;
-  availableUnits: number;
-  wifi: boolean;
-  laundry: boolean;
-}
+  nombre: string;
+  ciudad: string;
+  estado: string;
+  foto: string;
+ }
